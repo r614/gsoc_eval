@@ -15,7 +15,7 @@ def getUTC(filePath, length):
     """Convert filename from UNIX time in nanoseconds to UTC time."""
     fileName = os.path.splitext(os.path.basename(filePath))[0]
     unixTime = int(fileName[:length])//(10**9)
-    utcTime = utc.localize(datetime.utcfromtimestamp(timeInt))
+    utcTime = utc.localize(datetime.utcfromtimestamp(unixTime))
     return utcTime
 
 def getLocalTime(utcTime, tzone):
